@@ -97,8 +97,9 @@ public abstract class AbstractBaseTest<P extends Participant>
      */
     protected AbstractBaseTest()
     {
+        final String staticRoom = System.getProperty("TORTURE_ROOM_ID");
         currentRoomName
-            = "torture" + String.valueOf((int)(Math.random()*1000000));
+            = staticRoom == null ? "torture" + String.valueOf((int)(Math.random()*1000000)) : staticRoom;
         participants = null;
     }
 
